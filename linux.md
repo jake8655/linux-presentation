@@ -272,3 +272,310 @@ cd Dokumenty
 ```
 
 <!-- end_slide -->
+
+Nie iba Linux a Unix, ale mnoho ďalšich
+---
+
+<!-- new_lines: 6 -->
+
+<!-- column_layout: [1, 4, 1] -->
+
+<!-- column: 0 -->
+![image:w:85%](assets/bsd-daemon.png)
+<!-- alignment: center -->
+# BSD
+<!-- alignment: left -->
+
+<!-- new_line -->
+
+![image:w:85%](assets/minix.png)
+<!-- alignment: center -->
+# Minix
+<!-- alignment: left -->
+
+<!-- column: 1 -->
+![image:w:100%](assets/unix-tree.png)
+
+<!-- column: 2 -->
+![image:w:100%](assets/freebsd.png)
+<!-- alignment: center -->
+# FreeBSD
+<!-- alignment: left -->
+
+<!-- new_lines: 5 -->
+
+![image:w:100%](assets/openbsd.png)
+<!-- alignment: center -->
+# OpenBSD
+<!-- alignment: left -->
+
+<!-- new_lines: 5 -->
+<!-- reset_layout -->
+
+<!-- speaker_note: |
+    BSD:
+      - Berkeley Software Distribution
+      - od University of California Berkeley
+      - 1978, bol propagovany ako zlepsena verzia AT&T Unixu
+      - monolitická architektúra
+
+    FreeBSD:
+      - vysiel 1993, stale sa na nom pracuje a pouziva sa
+      - jeden z prvych open source unix-like operačných systémov
+      - najpouzivanejsi OS odvodeny od BSD
+      - monolitická architektúra
+      - obsahuje jadro, ovladace zariadeni (device drivers), userland utilities (as opposed to Linux and GNU)
+
+    OpenBSD:
+      - vysiel 1995, by forking NetBSD 1.0
+      - monolitická architektúra
+      - sustredeny na bezpecnost, portability, standardizáciu a kryptografiu
+
+    macOS:
+      - based on Darwin which is based on BSD
+-->
+
+<!-- end_slide -->
+
+Voľba, Voľba Voľba: Linux Distribucie
+---
+
+<!-- column_layout: [1, 1, 1] -->
+
+<!-- column: 0 -->
+![image:w:50%](assets/distro-timeline.png)
+
+<!-- column: 1 -->
+![image:w:70%](assets/distro-family.png)
+
+---
+
+## Čo je Linux distribúcia?
+Je to ucelený operačný systém zložený z častí:
+- kernel (Linux)
+- libs (glibc, libstdc++, libX11...)
+- init-system (systemd, sysvinit, OpenRC...)
+- package manažér (pacman, apt, dnf...)
+
+Rôzne distribúcie balia softvér odlišne a majú rôzne ciele (jednoduchosť použitia, stabilita, špecifické použitia).
+
+<!-- speaker_note: |
+  Je velmi vela distribucii, dolezite je si 1 vybrat a proste to pouzivat, ked potom nepaci, da sa velmi lahko vymenit, ale 90% je rovnake.
+
+  Linux history tree:
+    - Ukazuje kedy ktora distribucia bola vytvorena z ktorej
+
+  glibc - GNU C Library
+        - core system functions
+  libstdc++ - Standard C++ Library
+  libX11 - X11 libraries
+
+  distrowatch.com - rozsiahle info o distribúciach linuxu
+-->
+
+<!-- column: 2 -->
+![image:w:100%](assets/systemd.png)
+<!-- alignment: center -->
+# systemd
+<!-- alignment: left -->
+
+<!-- new_lines: 2 -->
+
+![image:w:100%](assets/distrowatch.png)
+<!-- alignment: center -->
+# distrowatch.com
+<!-- alignment: left -->
+
+<!-- new_lines: 2 -->
+![image:w:10%](assets/circlejerk.png)
+
+<!-- end_slide -->
+
+Ziskavanie Softveru: Package Managers
+---
+Správca balíkov (package manager) je systém, ktorý automatizuje proces inštalácie, aktualizácie, konfigurácie a odstraňovania softvéru.
+
+Zabezpečuje závislosti (keď jeden program potrebuje iný, aby fungoval).
+
+Zjednodušuje inštaláciu softvéru na Linuxe v porovnaní s manuálnym sťahovaním a inštaláciou.
+
+<!-- column_layout: [1, 1, 1] -->
+
+<!-- column: 0 -->
+## Príklady:
+- `apt`, `pacman` - tradicionálne sysytem-level package managery
+- `rpm`, `yum`, `dnf`, `zypper` - rpm-based package managery
+- `snap`, `flatpak`, - univerzálne kontajnerizované balíky
+- `emerge` - založený na manuálnej kompilácii zdroju balíkov
+
+<!-- speaker_note: |
+  apt - debian, debian-based
+  pacman - arch, arch-based
+  rpm - redhat, redhat-based, SUSE Linux Enterprise, openSUSE, backend (doesnt manage deps)
+  yum - rpm++, manages deps
+  dnf - fedora, yum++
+  zypper - uses rpm backend, SUSE Linux Enterprise, openSUSE
+  emerge - gentoo, source-based
+-->
+
+<!-- new_lines: 2 -->
+## Nainštalovanie balíka:
+```bash
+sudo apt install firefox
+sudo pacman -S firefox
+sudo emerge www-client/firefox
+sudo dnf install firefox
+```
+
+## Odinštalovanie balíka:
+```bash
+sudo apt remove firefox
+sudo pacman -R firefox
+sudo emerge --deselect www-client/firefox
+sudo dnf remove firefox
+```
+
+<!-- column: 2 -->
+
+## Repozitáre
+- Centralizované online knižnice balíkov
+- Package managery používajú tieto repozitáre na inštaláciu a aktualizáciu balíkov
+- Existuje mnoho mirrorov repozitárov
+- DebianStable, Arch official, AUR...
+
+<!-- speaker_note: |
+
+  DebianStable
+    - 6 mesiacov dozadu
+    - rigorous testing
+
+  Arch official
+    - rolling release
+    - hlavne baliky, viac testingu
+
+  AUR
+    - Arch User Repository
+    - baliky od Arch Linux community
+    - hocikto vie nahrat balik => security risk
+    - malo testingu, mozu byt baliky stare, nefungujuce
+-->
+
+<!-- new_lines: 4 -->
+![image:w:100%](assets/aur.png)
+# AUR (Arch User Repository)
+
+<!-- end_slide -->
+
+Ako to Vidime: Window Managers (WM) & Desktop Environments (DE)
+---
+
+<!-- column_layout: [1, 1, 1] -->
+
+<!-- column: 0 -->
+![image:w:85%](assets/gnome.png)
+<!-- alignment: center -->
+# GNOME (X11 + Wayland)
+<!-- alignment: left -->
+
+<!-- column: 1 -->
+![image:w:100%](assets/kde.png)
+<!-- alignment: center -->
+# KDE (X11 + Wayland)
+<!-- alignment: left -->
+
+<!-- column: 2 -->
+![image:w:100%](assets/cinnamon.jpg)
+<!-- alignment: center -->
+# Cinnamon (X11)
+<!-- alignment: left -->
+
+<!-- reset_layout -->
+
+<!-- column_layout: [2, 1] -->
+
+<!-- column: 0 -->
+## Desktop Environments
+- Kompletný GUI obsahujúci desktop, okná, ikony, panely, menu, file manager, terminal, nastavenia...
+
+<!-- column: 1 -->
+![image:w:100%](assets/unixporn.png)
+
+<!-- reset_layout -->
+---
+
+<!-- column_layout: [1, 1, 1] -->
+
+<!-- column: 0 -->
+![image:w:85%](assets/i3.png)
+<!-- alignment: center -->
+# i3 (X11)
+<!-- alignment: left -->
+
+<!-- column: 1 -->
+![image:w:100%](assets/hyprland.png)
+<!-- alignment: center -->
+# Hyprland (Wayland)
+<!-- alignment: left -->
+
+<!-- column: 2 -->
+## Window Managers
+- Viac špecifické na kontrolovanie polohy a vzhľadu okien aplikácií
+- Súčasťou DE
+
+### Tiling window manager
+- Trendy v modernej dobe
+- Namiesto tradicionálneho floating principlu (okná sa voľne pohybujú) usporiada okná do samostatných "rámov", ktoré zapĺňajú celú obrazovku
+
+<!-- speaker_note: |
+  X Window System
+    - koncept, protokol, ktory opisuje ako sa maju GUIs zobrazit na obrazovke
+    - vysiel 1984
+  X11
+    - X verzia 11
+    - vysla v 1987
+    - najnovsia verzia X11R7.7 (release 7.7) 2012
+    - problemy: screen tearing, komplexita v implementácii (client-server architektura)
+  XORG
+    - implementacia X11 servera, ktoru DE pouzivaju
+
+  Wayland
+    - koncept, protokol
+    - vysiel 2008
+    - novsi, jednoduchsi, lepsi vykon, viac bezpecny
+-->
+
+<!-- end_slide -->
+
+Zaver: Prečo je Linux dôležitý?
+---
+
+Poháňa väčšinu svetových serverov a internetu.
+
+Beží na superpočítačoch, smartfónoch (Android používa jadro Linuxu), embedded zariadeniach a desktopoch.
+
+Je open source a riadený komunitou – podporuje spoluprácu a inovácie.
+
+Poskytuje používateľom flexibilitu a kontrolu.
+
+Linux je silným príkladom toho, ako spolupráca a filozofia slobodného softvéru môžu vytvoriť niečo, čo zmení svet.
+
+Je to svedectvo príspevkov mnohých jednotlivcov a Projektu GNU.
+
+---
+
+<!-- new_lines: 5 -->
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
+![image:w:100%](assets/server.png)
+
+<!-- column: 1 -->
+![image:w:100%](assets/open-source.png)
+
+<!-- end_slide -->
+
+<!-- jump_to_middle -->
+<!-- column_layout: [1, 1, 1] -->
+<!-- column: 1 -->
+<!-- font_size: 5 -->
+# **Otazky?**
