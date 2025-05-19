@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Define the base command
+BASE_CMD="presenterm -x --theme linux linux.md"
+
+# Check the arguments
+if [ $# -eq 0 ]; then
+  # No arguments, run with --publish-speaker-notes
+  $BASE_CMD --publish-speaker-notes
+elif [ "$1" == "--listen" ]; then
+  # --listen argument, run with --listen-speaker-notes
+  $BASE_CMD --listen-speaker-notes
+else
+  # Invalid argument
+  echo "Usage: $0 [--listen]"
+  exit 1
+fi
+
+exit 0
